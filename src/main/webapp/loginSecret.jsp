@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="login" action="checklogin" method="post"
+	<form name="login" action="checkLogin" method="post"
 		accept-charset="utf-8">
 		<label for="username">Username</label> <input type="text"
 			name="username" placeholder="username" required> <label
