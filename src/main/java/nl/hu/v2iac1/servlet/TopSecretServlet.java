@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class SecretServlet extends HttpServlet {
-	private HttpSession session;
+public class TopSecretServlet extends HttpServlet {
+	private HttpSession session; 
 	private HttpServletResponse resp;
 	private HttpServletRequest req;
-	int poging;
+	private int poging;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,10 +44,9 @@ public class SecretServlet extends HttpServlet {
 			message = "Verkeerde gegevens ingevoerd!  "+poging+" van de 3 pogingen verbruikt";
 			req.setAttribute("msgs", message);
 			session.setAttribute("pogingen", poging);
-			rd = req.getRequestDispatcher("loginSecret.jsp");	
-			rd.forward(req, resp);	
+			rd = req.getRequestDispatcher("loginSecret.jsp");			
 		}
-			
+		rd.forward(req, resp);		
 	}
 
 }
