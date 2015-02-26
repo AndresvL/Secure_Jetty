@@ -9,6 +9,12 @@
 <body>
 	<form name="login" action="checkLogin" method="post"
 		accept-charset="utf-8">
+		<% 
+		Object msgs = request.getAttribute("msgs"); 
+		if (msgs != null) { 	 
+			out.println(msgs); 
+			out.println(); 		
+		}	%>
 		<label for="username">Username</label> <input type="text"
 			name="username" placeholder="username" required> <label
 			for="password">Password</label> <input type="password"

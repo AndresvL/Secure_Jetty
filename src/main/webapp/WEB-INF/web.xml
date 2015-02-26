@@ -29,6 +29,10 @@
 		<servlet-name>SecretServlet</servlet-name>
 		<servlet-class>nl.hu.v2iac1.servlet.SecretServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>TopSecretServlet</servlet-name>
+		<servlet-class>nl.hu.v2iac1.servlet.TopSecretServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>V2IAC1-14 Web Application</servlet-name>
@@ -38,6 +42,11 @@
 	<servlet-mapping>
 		<servlet-name>SecretServlet</servlet-name>
 		<url-pattern>checkLogin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>TopSecretServlet</servlet-name>
+		<url-pattern>checkLoginEmail</url-pattern>
 	</servlet-mapping>
 
 	<filter>
@@ -51,18 +60,21 @@
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
+	
 	<filter-mapping>
 		<filter-name>FilterForSecurity</filter-name>
 		<url-pattern>/rest/topsecret</url-pattern>
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
+	
 	<filter-mapping>
 		<filter-name>FilterForSecurity</filter-name>
 		<url-pattern>/rest/topsecret/</url-pattern>
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
+	
 	<filter-mapping>
 		<filter-name>FilterForSecurity</filter-name>
 		<url-pattern>/rest/secret/</url-pattern>
