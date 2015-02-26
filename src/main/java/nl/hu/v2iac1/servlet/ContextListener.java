@@ -16,13 +16,6 @@ public class ContextListener implements ServletContextListener{
  
 	public void contextInitialized(ServletContextEvent contextEvent) {
 		context = contextEvent.getServletContext();
-	
-		
-		//keys for secret
-		ArrayList<String> keys = new ArrayList<String>();
-		context = contextEvent.getServletContext();
-		context.setAttribute("pogingen", 0);
-		context.setAttribute("user", false);
 	}
 	
 }

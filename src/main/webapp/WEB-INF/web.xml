@@ -47,7 +47,25 @@
 
 	<filter-mapping>
 		<filter-name>FilterForSecurity</filter-name>
-		<url-pattern>rest/*</url-pattern>
+		<url-pattern>/rest/secret</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForSecurity</filter-name>
+		<url-pattern>/rest/topsecret</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForSecurity</filter-name>
+		<url-pattern>/rest/topsecret/</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForSecurity</filter-name>
+		<url-pattern>/rest/secret/</url-pattern>
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
