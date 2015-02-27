@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Secret</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<form name="login" action="checkLogin" method="post"
@@ -15,12 +16,13 @@
 			out.println(msgs); 
 			out.println(); 		
 		}	%>
-		<label for="username">Username</label> <input type="text"
-			name="username" placeholder="username" required> <label
-			for="password">Password</label> <input type="password"
-			name="password" placeholder="password" required> <input
-			type="submit" value="View Secret">
-		</li>
+		<div><center><span style="color:white"><label for="username">Username</label></span>
+		<input class="rounded" type="text" name="username" placeholder="username" required></center>
+			</br>
+		<center><span style="color:white"><label for="password">Password</label></span>
+		<input class="rounded" type="password" name="password" placeholder="password" required></center> 
+			</br>
+		<input type="submit" value="View Secret" style="float: right;"></div>
 	</form>
 </body>
 </html>

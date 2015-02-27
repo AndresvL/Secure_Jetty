@@ -39,12 +39,12 @@ public class TopSecretServlet extends HttpServlet {
 		returnLogin = returnLogin && (password.equals("andres"));
 		if (returnLogin && poging <= 3) {
 			session.setAttribute("user", 1);
-			resp.sendRedirect("rest/secret");
+			resp.sendRedirect("rest/topsecret");
 		} else {		
 			message = "Verkeerde gegevens ingevoerd!  "+poging+" van de 3 pogingen verbruikt";
 			req.setAttribute("msgs", message);
 			session.setAttribute("pogingen", poging);
-			rd = req.getRequestDispatcher("loginSecret.jsp");			
+			rd = req.getRequestDispatcher("loginTopsecret.jsp");			
 		}
 		rd.forward(req, resp);		
 	}
