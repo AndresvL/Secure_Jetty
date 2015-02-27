@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.hu.v2iac1-14</groupId>
-    <artifactId>sample</artifactId>
+    <artifactId>Secure_Jetty</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>v2iac1-14-sample Maven Webapp</name>
+    <name>v2iac1-14-Secure_Jetty Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +37,7 @@
     </dependencies>
 
     <build>
-        <finalName>sample</finalName>
+        <finalName>Secure_Jetty</finalName>
     </build>
 
 
