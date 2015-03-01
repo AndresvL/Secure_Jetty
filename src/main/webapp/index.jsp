@@ -1,17 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Secret</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h2>Secrets!</h2>
+<span style="color:white"><h2>Secrets!</h2>
 	<% 
 		Object msgs = request.getAttribute("msgs"); 
 		if (msgs != null) { 	 
 			out.println(msgs); 
 			out.println(); 		
 		}	%>
+</span>
 <ul>
-    <li>Deze <a href="rest/public/">link</a> mag publiek zijn.</li>
-    <li>Deze <a href="loginSecret.jsp">link</a> moet met een username/password beveiligd worden. (+3 pt)</li>
-    <li>Deze <a href="rest/verysecret">link</a> moet via een externe identity provider beveiligd worden. (+3 pt)</li>
-    <li>Deze <a href="loginTopsecret.jsp">link</a> moet met two-factor authenticatie beveiligd worden. (+3 pt)</li>
+    <li><span style="color:white">Deze <a href="rest/public/">link</a> mag publiek zijn.<span></span></li>
+    <li><span style="color:white">Deze <a href="loginSecret.jsp">link</a> moet met een username/password beveiligd worden. (+3 pt)</span></li>
+    <li><span style="color:white">Deze <a href="loginVerySecret.jsp">link</a> moet via een externe identity provider beveiligd worden. (+3 pt)</span></li>
+    <li><span style="color:white">Deze <a href="loginTopsecret.jsp">link</a> moet met two-factor authenticatie beveiligd worden. (+3 pt)</span></li>
 </ul>
 </body>
 </html>

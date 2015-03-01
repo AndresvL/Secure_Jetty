@@ -33,6 +33,10 @@
 		<servlet-name>TopSecretServlet</servlet-name>
 		<servlet-class>nl.hu.v2iac1.servlet.TopSecretServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CheckServlet</servlet-name>
+		<servlet-class>nl.hu.v2iac1.servlet.CheckServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>V2IAC1-14 Web Application</servlet-name>
@@ -47,6 +51,11 @@
 	<servlet-mapping>
 		<servlet-name>TopSecretServlet</servlet-name>
 		<url-pattern>checkLoginEmail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CheckServlet</servlet-name>
+		<url-pattern>checkaccount</url-pattern>
 	</servlet-mapping>
 
 	<filter>

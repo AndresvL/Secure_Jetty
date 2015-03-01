@@ -3,22 +3,18 @@ package nl.hu.v2iac1.servlet;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Scanner;
 import java.util.UUID;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +34,7 @@ public class TopSecretServlet extends HttpServlet {
 		login(username, password);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void login(String username, String password)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;

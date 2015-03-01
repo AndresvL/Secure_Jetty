@@ -1,0 +1,42 @@
+body {
+    background-image: url("http://fc05.deviantart.net/fs10/i/2006/106/6/a/blue_matrix_by_bboisupafly.jpg");
+}
+
+div { 
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+.center {
+	position: fixed;
+  	top: 50%;
+  	left: 40%;
+  	margin-top: -50px;
+  	margin-left: -100px;
+}
+
+input.rounded {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+	display: inline-block;
+    width: 150px;
+    text-align:right;
+}
+label {
+    padding-right:20px;
+    display:inline-block;
+    min-width:150px;
+    text-align:right;
+}
