@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import nl.hu.v2iac1.domein.User;
+
 public class SecretServlet extends HttpServlet {
 	private HttpServletResponse resp;
 	private HttpServletRequest req;
@@ -32,7 +34,8 @@ public class SecretServlet extends HttpServlet {
 		returnLogin = returnLogin && (username.equals("jacky"));
 		returnLogin = returnLogin && (password.equals("andres"));
 		if (returnLogin) {
-			req.getSession().setAttribute("secretuser", 1);
+			User u = new User(username, password);
+			req.getSession().setAttribute("topsecretuser", u);		
 			resp.sendRedirect("rest/secret");
 		} else {		
 			req.setAttribute("msgs", "Verkeerde gegevens ingevoerd!");

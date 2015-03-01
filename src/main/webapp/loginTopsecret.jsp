@@ -10,19 +10,33 @@
 <body>
 	<form name="login" action="checkLoginEmail" method="post"
 		accept-charset="utf-8">
-		<% 
-		Object msgs = request.getAttribute("msgs"); 
-		if (msgs != null) { 	 
-			out.println(msgs); 
-			out.println(); 		
-		}	%>
-		<div><center><span style="color:white"><label for="username">Username</label></span>
-		<input class="rounded" type="text" name="username" placeholder="username" required></center>
+		<%
+			Object msgs = request.getAttribute("msgs");
+			if (msgs != null) {
+				out.println(msgs);
+				out.println();
+			}
+		%>
+		<div>
+			<center>
+				<span style="color: white"><label for="username">Username</label></span>
+				<input class="rounded" type="text" name="username"
+					placeholder="username" required>
+			</center>
 			</br>
-		<center><span style="color:white"><label for="password">Password</label></span>
-		<input class="rounded" type="password" name="password" placeholder="password" required></center> 
+			<center>
+				<span style="color: white"><label for="password">Password</label></span>
+				<input class="rounded" type="password" name="password"
+					placeholder="password" required>
+			</center>
 			</br>
-		<input type="submit" value="View Secret" style="float: right;"></div>
+			<center>
+				<span style="color: white"><label for="email">Email</label></span>
+				<input class="rounded" type="tekst" name="email"
+					placeholder="emailadress" required>
+			</center>
+			</br> <input type="submit" value="Log in" style="float: right;">
+		</div>
 	</form>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package nl.hu.v2iac1.servlet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -13,7 +15,8 @@ public class ContextListener implements ServletContextListener{
 	}
  
 	public void contextInitialized(ServletContextEvent contextEvent) {
-
+		Map<String, String> emailKeys = new HashMap<String, String>();
+		context = contextEvent.getServletContext();
+		context.setAttribute("keys", emailKeys);
 	}
-	
 }

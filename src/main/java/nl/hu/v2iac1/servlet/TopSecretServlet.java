@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import nl.hu.v2iac1.domein.User;
+
 public class TopSecretServlet extends HttpServlet {
 	private HttpServletResponse resp;
 	private HttpServletRequest req;
@@ -31,30 +33,34 @@ public class TopSecretServlet extends HttpServlet {
 		req = request;
 		String username = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
-		login(username, password);
+		String email = (String) request.getParameter("email");
+		login(username, password, email);
 	}
 
 	@SuppressWarnings("unchecked")
-	public void login(String username, String password)
+	public void login(String username, String password, String email)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		boolean returnLogin = true;
 		returnLogin = returnLogin && (username.equals("jacky"));
 		returnLogin = returnLogin && (password.equals("andres"));
 		if (returnLogin) {
-			req.getSession().setAttribute("topsecretuser", 1);
-			resp.sendRedirect("rest/topsecret");
-			String email = "andresvanlummel@gmail.com";
 			String mailKey = UUID.randomUUID().toString();
-			Map<String, String> verification = (Map<String, String>) req.getServletContext().getAttribute("keys");
+			Map<String, String> verification = (Map<String, String>) req
+					.getServletContext().getAttribute("keys");
 			verification.put(email, mailKey);
 			req.getServletContext().setAttribute("keys", verification);
 			sendEmail(email, mailKey);
+			User u = new User(username, password, email, mailKey);
+			req.getSession().setAttribute("topsecretuser", u);
+			resp.sendRedirect("checkEmailkey.jsp");
 		} else {
 			req.setAttribute("msgs", "Verkeerde gegevens ingevoerd!");
 			rd = req.getRequestDispatcher("loginTopsecret.jsp");
 			rd.forward(req, resp);
+
 		}
+
 	}
 
 	private void sendEmail(String email, String mailKey) {
@@ -72,11 +78,12 @@ public class TopSecretServlet extends HttpServlet {
 			props.put("mail.smtp.port", "587");
 
 			// Get the default Session object.
-			Session session = Session.getDefaultInstance(props, new Authenticator() {
-						protected PasswordAuthentication getPasswordAutentication() {
+			Session session = Session.getDefaultInstance(props,
+					new javax.mail.Authenticator() {
+						protected PasswordAuthentication getPasswordAuthentication() {
 							return new PasswordAuthentication(sendFrom, password);
 						}
-			});
+					});
 			// Create a default MimeMessage object.
 			MimeMessage message = new MimeMessage(session);
 
