@@ -22,6 +22,7 @@ public class CheckEmail extends HttpServlet {
 			rd = request.getRequestDispatcher("/Secure_Jetty/checkEmailkey.jsp");
 			request.setAttribute("msgs", "De ingevulde code komt niet overeen met die in de mail");
 			request.getServletContext().setAttribute("user", null);
+			rd.forward(request, response);
 		}
 	}
 }
