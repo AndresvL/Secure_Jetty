@@ -19,18 +19,18 @@
 		</label>
 		</center></span>
 	<ul>
-		<li><span style="color: white">Deze <a href="rest/public/">link</a>
+		<li><span style="color: white">Deze <a href="/Secure_Jetty/rest/public/">link</a>
 				mag publiek zijn.<span></span></li>
 		<li><span style="color: white">Deze <a
-				href="loginSecret.jsp">link</a> moet met een username/password
+				href="/Secure_Jetty//loginSecret.jsp">link</a> moet met een username/password
 				beveiligd worden. (+3 pt)
 		</span></li>
 		<li><span style="color: white">Deze <a
-				href="loginVerySecret.jsp">link</a> moet via een externe identity
+				href="/Secure_Jetty//loginVerySecret.jsp">link</a> moet via een externe identity
 				provider beveiligd worden. (+3 pt)
 		</span></li>
 		<li><span style="color: white">Deze <a
-				href="loginTopsecret.jsp">link</a> moet met two-factor authenticatie
+				href="/Secure_Jetty/loginTopsecret.jsp">link</a> moet met two-factor authenticatie
 				beveiligd worden. (+3 pt)
 		</span></li>
 	</ul>

@@ -1,7 +1,5 @@
 package nl.hu.v2iac1.servlet;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.UUID;
