@@ -64,7 +64,7 @@
 
 	<servlet-mapping>
 		<servlet-name>checkEmail</servlet-name>
-		<url-pattern>checkEmail</url-pattern>
+		<url-pattern>checkemail</url-pattern>
 	</servlet-mapping>
 
 	<filter>

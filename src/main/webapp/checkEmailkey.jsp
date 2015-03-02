@@ -9,7 +9,7 @@
 <title>EmailKey</title>
 </head>
 <body>
-	<form name="checkEmail" action="checkEmail" method="post"
+	<form name="checkEmail" action="checkemail" method="post"
 		accept-charset="utf-8">
 		<center>
 			<label style="color: white"> <%
