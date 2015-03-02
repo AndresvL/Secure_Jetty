@@ -12,16 +12,16 @@
 	<form name="checkEmail" action="checkEmail" method="post"
 		accept-charset="utf-8">
 		<center>
-		<label style="color: white"> <%
+			<label style="color: white"> <%
  	Object msgs = request.getAttribute("msgs");
  	if (msgs != null) {
  		out.println(msgs);
  		out.println();
  	}
  %>
-		</label>
-		</center> <label for="secretkey">Key</label> <input class="rounded" type="text" name="key"
-			placeholder="Secret key" required> <input type="submit"
-			value="Submit key">
+			</label> <label for="secretkey">Key</label> <input class="rounded"
+				type="text" name="key" placeholder="Secret key" required> <input
+				type="submit" value="Submit key">
+		</center>
 	</form>
 </body>
