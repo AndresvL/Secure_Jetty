@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import nl.hu.v2iac1.domein.User;
+import nl.hu.v2iac1.auth.*;
 
 public class TopSecretServlet extends HttpServlet {
 	private HttpServletResponse resp;
@@ -40,55 +41,46 @@ public class TopSecretServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void login(String username, String password, String email)
 			throws ServletException, IOException {
-		RequestDispatcher rd = null;
 		boolean returnLogin = true;
 		returnLogin = returnLogin && (username.equals("jacky"));
 		returnLogin = returnLogin && (password.equals("andres"));
 		if (returnLogin) {
 			String mailKey = UUID.randomUUID().toString();
-			Map<String, String> verification = (Map<String, String>) req
-					.getServletContext().getAttribute("keys");
-			verification.put(email, mailKey);
-			req.getServletContext().setAttribute("keys", verification);
 			sendEmail(email, mailKey);
 			User u = new User(username, password, email, mailKey);
 			req.getSession().setAttribute("topsecretuser", u);
 			resp.sendRedirect("checkEmailkey.jsp");
 		} else {
 			req.setAttribute("msgs", "Verkeerde gegevens ingevoerd!");
-			rd = req.getRequestDispatcher("loginTopsecret.jsp");
-			rd.forward(req, resp);
+			resp.sendRedirect("loginTopsecret.jsp");
 
 		}
 
 	}
-
 	private void sendEmail(String email, String mailKey) {
 		try {
 			String sendTo = email;
-			final String sendFrom = "securejetty@gmail.com";
-			final String password = "local.properties";
-			// system properties
-			Properties props = System.getProperties();
-
-			// Setup mail server
-			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.host", "smtp.gmail.com");
-			props.put("mail.smtp.port", "587");
-
+			String host = "smtp.gmail.com";
+	        String from = "securejetty@gmail.com";
+	        String pass = "local.properties";
+	        
+	        // Setup mail server
+	        Properties props = System.getProperties();
+	        props.put("mail.smtp.starttls.enable", "true");
+	        props.put("mail.smtp.host", host);
+	        props.put("mail.smtp.user", from);
+	        props.put("mail.smtp.password", pass);
+	        props.put("mail.smtp.port", "587");
+	        props.put("mail.smtp.auth", "true");
+	        props.put("mail.debug", "true");			
+			
 			// Get the default Session object.
-			Session session = Session.getDefaultInstance(props,
-					new javax.mail.Authenticator() {
-						protected PasswordAuthentication getPasswordAuthentication() {
-							return new PasswordAuthentication(sendFrom, password);
-						}
-					});
+			Session session = Session.getInstance(props, new GMailAuthenticator(from, pass));
 			// Create a default MimeMessage object.
 			MimeMessage message = new MimeMessage(session);
 
 			// Set email from.
-			message.setFrom(new InternetAddress(sendFrom));
+			message.setFrom(new InternetAddress(from));
 
 			// Create message.
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(
