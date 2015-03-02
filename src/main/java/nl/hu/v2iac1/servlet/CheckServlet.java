@@ -18,14 +18,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class CheckServlet extends HttpServlet {
-	private HttpServletRequest request;
-	private HttpServletResponse response;
 
 	private String emailAdress;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.request = request;
 		HttpSession session = request.getSession();
 		final GoogleAuthHelper helper = new GoogleAuthHelper();
 		if (request.getParameter("code") != null

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<form name="checkemail" action="checkemail" method="post" accept-charset="utf-8">
+	<form name="checkEmail" action="checkEmail" method="post" accept-charset="utf-8">
 		 <label for="secretkey">Key</label>
 		 <input type="text" name="key" placeholder="Secret key" required>
 		 <input type="hidden" name="key" value=<%=request.getParameter("key")%>>
