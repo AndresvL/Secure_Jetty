@@ -19,7 +19,7 @@
  		out.println();
  	}
  %>
-			</label> <label for="secretkey">Key</label> <input class="rounded"
+			</label></center> <center><label for="secretkey">Key</label> <input class="rounded"
 				type="text" name="key" placeholder="Secret key" required> <input
 				type="submit" value="Submit key">
 		</center>
