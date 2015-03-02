@@ -1,10 +1,7 @@
 package nl.hu.v2iac1.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.UUID;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,19 +31,19 @@ public class CheckServlet extends HttpServlet {
 			String jsonString = helper.getUserInfoJson(request
 					.getParameter("code"));
 			try {
-				JSONObject json = (JSONObject) new JSONParser().parse(jsonString);
+				JSONObject json = (JSONObject) new JSONParser()
+						.parse(jsonString);
 				emailAdress = (String) json.get("email");
 			} catch (ParseException e) {
 			}
 			if (emailAdress.equals("securejetty@gmail.com")) {
 				response.sendRedirect("/Secure_Jetty/rest/verysecret/");
-			}
-			else{
+			} else {
 				response.sendRedirect("/Secure_Jetty/loginVerySecret.jsp");
 			}
 		} else {
 			response.sendRedirect("/Secure_Jetty/loginVerySecret.jsp");
-		} 
+		}
 	}
 
 }

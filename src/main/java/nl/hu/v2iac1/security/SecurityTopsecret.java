@@ -13,13 +13,14 @@ public class SecurityTopsecret implements Filter{
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req2 = (HttpServletRequest) req;
-		HttpServletResponse resp2 = (HttpServletResponse) resp;
 		if (req2.getSession().getAttribute("topsecretuser") != null) {
 			chain.doFilter(req, resp);
 		} else {
+			RequestDispatcher rd = null;
 			req.setAttribute("msgs",
 					"Op deze manier kom je niet achter het Geheim!");
-			resp2.sendRedirect("/Secure_Jetty/loginTopsecret.jsp");
+			rd = req.getRequestDispatcher("/index.jsp");
+			rd.forward(req, resp);
 		}
 	}
 
