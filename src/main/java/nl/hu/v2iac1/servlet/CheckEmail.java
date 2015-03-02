@@ -19,7 +19,7 @@ public class CheckEmail extends HttpServlet {
 			response.sendRedirect("/Secure_Jetty/rest/topsecret/");
 		} else {
 			RequestDispatcher rd = null;
-			rd = request.getRequestDispatcher("/Secure_Jetty/checkEmailkey.jsp");
+			rd = request.getRequestDispatcher("/checkEmailkey.jsp");
 			request.setAttribute("msgs", "De ingevulde code komt niet overeen met die in de mail");
 			request.getServletContext().setAttribute("user", null);
 			rd.forward(request, response);
