@@ -41,7 +41,7 @@
 		<servlet-name>checkEmail</servlet-name>
 		<servlet-class>nl.hu.v2iac1.servlet.CheckEmail</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>V2IAC1-14 Web Application</servlet-name>
 		<url-pattern>rest/*</url-pattern>
@@ -61,7 +61,7 @@
 		<servlet-name>CheckServlet</servlet-name>
 		<url-pattern>checkaccount</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>checkEmail</servlet-name>
 		<url-pattern>checkEmail</url-pattern>
@@ -69,7 +69,15 @@
 
 	<filter>
 		<filter-name>FilterForSecurity</filter-name>
-		<filter-class>nl.hu.v2iac1.servlet.SecurityFilter</filter-class>
+		<filter-class>nl.hu.v2iac1.security.SecurityFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>FilterForTopsecret</filter-name>
+		<filter-class>nl.hu.v2iac1.security.SecurityTopsecret</filter-class>
+	</filter>
+	<filter>
+		<filter-name>FilterForVerysecret</filter-name>
+		<filter-class>nl.hu.v2iac1.security.SecurityVerysecret</filter-class>
 	</filter>
 
 	<filter-mapping>
@@ -78,26 +86,39 @@
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
-
-	<filter-mapping>
-		<filter-name>FilterForSecurity</filter-name>
-		<url-pattern>/rest/topsecret</url-pattern>
-		<DISPATCHER>REQUEST</DISPATCHER>
-		<DISPATCHER>RESPONSE</DISPATCHER>
-	</filter-mapping>
-
-	<filter-mapping>
-		<filter-name>FilterForSecurity</filter-name>
-		<url-pattern>/rest/topsecret/</url-pattern>
-		<DISPATCHER>REQUEST</DISPATCHER>
-		<DISPATCHER>RESPONSE</DISPATCHER>
-	</filter-mapping>
-
 	<filter-mapping>
 		<filter-name>FilterForSecurity</filter-name>
 		<url-pattern>/rest/secret/</url-pattern>
 		<DISPATCHER>REQUEST</DISPATCHER>
 		<DISPATCHER>RESPONSE</DISPATCHER>
 	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FilterForTopsecret</filter-name>
+		<url-pattern>/rest/topsecret</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForTopsecret</filter-name>
+		<url-pattern>/rest/topsecret/</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FilterForVerysecret</filter-name>
+		<url-pattern>/rest/verysecret</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FilterForVerysecret</filter-name>
+		<url-pattern>/rest/verysecret/</url-pattern>
+		<DISPATCHER>REQUEST</DISPATCHER>
+		<DISPATCHER>RESPONSE</DISPATCHER>
+	</filter-mapping>
+
+
 
 </web-app>

@@ -4,19 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Secret</title>
 <link rel="stylesheet" href="style.css">
+<title>TopSecret</title>
 </head>
 <body>
 	<form name="login" action="checkLoginEmail" method="post"
 		accept-charset="utf-8">
-		<%
-			Object msgs = request.getAttribute("msgs");
-			if (msgs != null) {
-				out.println(msgs);
-				out.println();
-			}
-		%>
+		<center>
+		<label style="color: white"> <%
+ 	Object msgs = request.getAttribute("msgs");
+ 	if (msgs != null) {
+ 		out.println(msgs);
+ 		out.println();
+ 	}
+ %>
+		</label>
+		</center>
 		<div>
 			<center>
 				<span style="color: white"><label for="username">Username</label></span>
@@ -31,9 +34,9 @@
 			</center>
 			</br>
 			<center>
-				<span style="color: white"><label for="email">Email</label></span>
-				<input class="rounded" type="tekst" name="email"
-					placeholder="emailadress" required>
+				<span style="color: white"><label for="email">Email</label></span> <input
+					class="rounded" type="tekst" name="email" placeholder="emailadress"
+					required>
 			</center>
 			</br> <input type="submit" value="Log in" style="float: right;">
 		</div>

@@ -35,14 +35,12 @@ public class SecretServlet extends HttpServlet {
 		returnLogin = returnLogin && (password.equals("andres"));
 		if (returnLogin) {
 			User u = new User(username, password);
-			req.getSession().setAttribute("topsecretuser", u);		
-			resp.sendRedirect("rest/secret");
-		} else {		
+			req.getSession().setAttribute("secretuser", u);
+			resp.sendRedirect("/Secure_Jetty/rest/secret/");
+		} else {
 			req.setAttribute("msgs", "Verkeerde gegevens ingevoerd!");
-			rd = req.getRequestDispatcher("loginSecret.jsp");	
-			rd.forward(req, resp);	
+			rd = req.getRequestDispatcher("/loginSecret.jsp");
+			rd.forward(req, resp);
 		}
-			
 	}
-
 }

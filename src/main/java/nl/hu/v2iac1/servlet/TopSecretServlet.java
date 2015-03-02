@@ -41,6 +41,7 @@ public class TopSecretServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	public void login(String username, String password, String email)
 			throws ServletException, IOException {
+		RequestDispatcher rd = null;
 		boolean returnLogin = true;
 		returnLogin = returnLogin && (username.equals("jacky"));
 		returnLogin = returnLogin && (password.equals("andres"));
@@ -49,33 +50,36 @@ public class TopSecretServlet extends HttpServlet {
 			sendEmail(email, mailKey);
 			User u = new User(username, password, email, mailKey);
 			req.getSession().setAttribute("topsecretuser", u);
-			resp.sendRedirect("checkEmailkey.jsp");
+			rd = req.getRequestDispatcher("/checkEmailkey.jsp");
+			req.setAttribute("msgs", "Kopieer de code die is verstuurd naar "
+					+ email + " en plak deze in het tekstveld");
 		} else {
+			rd = req.getRequestDispatcher("/loginTopsecret.jsp");
 			req.setAttribute("msgs", "Verkeerde gegevens ingevoerd!");
-			resp.sendRedirect("loginTopsecret.jsp");
-
 		}
-
+		rd.forward(req, resp);
 	}
+
 	private void sendEmail(String email, String mailKey) {
 		try {
 			String sendTo = email;
 			String host = "smtp.gmail.com";
-	        String from = "securejetty@gmail.com";
-	        String pass = "local.properties";
-	        
-	        // Setup mail server
-	        Properties props = System.getProperties();
-	        props.put("mail.smtp.starttls.enable", "true");
-	        props.put("mail.smtp.host", host);
-	        props.put("mail.smtp.user", from);
-	        props.put("mail.smtp.password", pass);
-	        props.put("mail.smtp.port", "587");
-	        props.put("mail.smtp.auth", "true");
-	        props.put("mail.debug", "true");			
-			
+			String from = "securejetty@gmail.com";
+			String pass = "local.properties";
+
+			// Setup mail server
+			Properties props = System.getProperties();
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", host);
+			props.put("mail.smtp.user", from);
+			props.put("mail.smtp.password", pass);
+			props.put("mail.smtp.port", "587");
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.debug", "true");
+
 			// Get the default Session object.
-			Session session = Session.getInstance(props, new GMailAuthenticator(from, pass));
+			Session session = Session.getInstance(props,
+					new GMailAuthenticator(from, pass));
 			// Create a default MimeMessage object.
 			MimeMessage message = new MimeMessage(session);
 
@@ -93,5 +97,4 @@ public class TopSecretServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
 }

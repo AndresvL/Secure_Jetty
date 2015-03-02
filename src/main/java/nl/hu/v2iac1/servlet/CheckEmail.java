@@ -19,9 +19,9 @@ public class CheckEmail extends HttpServlet {
 		System.out.println("This is the key: "+key);
 		User u = (User) request.getSession().getAttribute("topsecretuser");
 		if (u.getKey().equals(key)) {			
-			response.sendRedirect("rest/topsecret/");
+			response.sendRedirect("/Secure_Jetty/rest/topsecret/");
 		} else {
-			response.sendRedirect("loginTopsecret.jsp");
+			response.sendRedirect("/Secure_Jetty/loginTopsecret.jsp");
 			request.getServletContext().setAttribute("user", null);
 		}
 	}

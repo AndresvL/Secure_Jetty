@@ -30,6 +30,7 @@ public class CheckServlet extends HttpServlet {
 				&& request.getParameter("state").equals(
 						session.getAttribute("state"))) {
 			session.removeAttribute("state");
+			session.setAttribute("code", request.getParameter("code"));
 			String jsonString = helper.getUserInfoJson(request
 					.getParameter("code"));
 			try {
