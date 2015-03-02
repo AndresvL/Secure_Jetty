@@ -49,22 +49,22 @@
 
 	<servlet-mapping>
 		<servlet-name>SecretServlet</servlet-name>
-		<url-pattern>checkLogin</url-pattern>
+		<url-pattern>/checkLogin</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>TopSecretServlet</servlet-name>
-		<url-pattern>checkLoginEmail</url-pattern>
+		<url-pattern>/checkLoginEmail</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>CheckServlet</servlet-name>
-		<url-pattern>checkaccount</url-pattern>
+		<url-pattern>/checkaccount</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>CheckEmail</servlet-name>
-		<url-pattern>checkEmail</url-pattern>
+		<url-pattern>/checkEmail</url-pattern>
 	</servlet-mapping>
 
 	<filter>

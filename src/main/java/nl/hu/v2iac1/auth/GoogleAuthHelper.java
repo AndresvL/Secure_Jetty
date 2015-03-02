@@ -19,8 +19,6 @@ import java.util.Collection;
 
 /**
  * A helper class for Google's OAuth2 authentication API.
- * @version 20130224
- * @author Matyas Danter
  */
 public final class GoogleAuthHelper {
 
@@ -36,7 +34,7 @@ public final class GoogleAuthHelper {
 	/**
 	 * Callback URI that google will redirect to after successful authentication
 	 */
-	private static final String CALLBACK_URI = "http://localhost:8080/Secure_Jetty/checkaccount";
+	private static final String CALLBACK_URI = "http://env-7507094.cloud.hostnet.nl/Secure_Jetty/checkaccount";
 	
 	// start google authentication constants
 	private static final Iterable<String> SCOPE = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
