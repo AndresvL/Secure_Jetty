@@ -1,19 +1,13 @@
 package nl.hu.v2iac1.domein;
 
-public class User {
-	private String name, password, email, key;
-	// TopSecretLogin
-	public User(String nm, String pass, String em, String k) {
+public class DefaultUser {
+	private String name, password, email, emailpassword;
+	// Setup default user
+	public DefaultUser(String nm, String pass, String em, String empass) {
 		name = nm;
 		password = pass;
 		email = em;
-		key = k;
-	}
-
-	// SecretLogin
-	public User(String nm, String pass) {
-		name = nm;
-		password = pass;
+		emailpassword = empass;
 	}
 
 	public void setName(String nm) {
@@ -28,8 +22,8 @@ public class User {
 		email = em;
 	}
 
-	public void setKey(String k) {
-		key = k;
+	public void setEmailPassword(String empass) {
+		emailpassword = empass;
 	}
 
 	public String getName() {
@@ -44,11 +38,11 @@ public class User {
 		return email;
 	}
 
-	public String getKey() {
-		return key;
+	public String getEmailPassword() {
+		return emailpassword;
 	}
 
 	public String toString() {
-		return name + password + email + key;
+		return name + password + email + emailpassword;
 	}
 }

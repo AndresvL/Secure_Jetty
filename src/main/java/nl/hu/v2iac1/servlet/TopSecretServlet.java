@@ -12,11 +12,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import nl.hu.v2iac1.domein.DefaultUser;
 import nl.hu.v2iac1.domein.User;
 import nl.hu.v2iac1.auth.*;
 
@@ -24,11 +26,14 @@ public class TopSecretServlet extends HttpServlet {
 	private HttpServletResponse resp;
 	private HttpServletRequest req;
 	HttpServletRequest req2 = (HttpServletRequest) req;
+	ServletContext context;
+	DefaultUser dU;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		resp = response;
 		req = request;
+		context = request.getServletContext();
 		String username = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
 		String email = (String) request.getParameter("email");
@@ -39,9 +44,10 @@ public class TopSecretServlet extends HttpServlet {
 	public void login(String username, String password, String email)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		boolean returnLogin = true;
-		returnLogin = returnLogin && (username.equals("jacky"));
-		returnLogin = returnLogin && (password.equals("andres"));
+		boolean returnLogin = true;		
+		dU = (DefaultUser)context.getAttribute("defaultuser");	
+		returnLogin = returnLogin && (username.equals(dU.getName()));
+		returnLogin = returnLogin && (password.equals(dU.getPassword()));
 		if (returnLogin) {
 			String mailKey = UUID.randomUUID().toString();
 			sendEmail(email, mailKey);
@@ -61,8 +67,8 @@ public class TopSecretServlet extends HttpServlet {
 		try {
 			String sendTo = email;
 			String host = "smtp.gmail.com";
-			String from = "securejetty@gmail.com";
-			String pass = "local.properties";
+			String from = dU.getEmail();
+			String pass = dU.getEmailPassword();
 
 			// Setup mail server
 			Properties props = System.getProperties();
