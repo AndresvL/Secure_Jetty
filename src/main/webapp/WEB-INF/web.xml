@@ -38,7 +38,7 @@
 		<servlet-class>nl.hu.v2iac1.servlet.CheckServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>checkemail</servlet-name>
+		<servlet-name>CheckEmail</servlet-name>
 		<servlet-class>nl.hu.v2iac1.servlet.CheckEmail</servlet-class>
 	</servlet>
 
@@ -63,7 +63,7 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>checkemail</servlet-name>
+		<servlet-name>CheckEmail</servlet-name>
 		<url-pattern>checkEmail</url-pattern>
 	</servlet-mapping>
 
