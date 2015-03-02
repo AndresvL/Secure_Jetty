@@ -4,9 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index</title>
 <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
-	<span style="color: white"><h2>Secrets!</h2> 		<center>
+<body background ="http://fc05.deviantart.net/fs10/i/2006/106/6/a/blue_matrix_by_bboisupafly.jpg">
+	<span style="color: white"><h2>Secrets!</h2> 		
+	<center>
 		<label style="color: white"> <%
  	Object msgs = request.getAttribute("msgs");
  	if (msgs != null) {
